@@ -1,0 +1,50 @@
+<div class="container">
+    <!-- Header -->
+<header class="app-header" *ngIf="(!isLoginPage() && !isRegisterPage())">
+    <nav>
+      <!-- <button (click)="toggleSidebar()" class="menu-icon">&#9776;</button> -->
+
+       <!-- <button class="menu-btn" (click)="toggleSidebar()">☰</button> -->
+       <a  (click)="toggleSidebar()">☰</a>
+      <a [routerLink]="['/employees']">Employee List</a>
+      <a [routerLink]="['/add-employee']">Add Employee</a>
+      <a [routerLink]="['/dashboard']">Dashboard</a>
+    </nav>
+    <div class="header-right">
+      <i class="fas fa-user-circle profile-icon" (click)="toggleDropdown()"></i> 
+       <span  >{{ username }} </span> 
+      
+      <!-- Dropdown Menu -->
+      <!-- <div *ngIf="username">
+           <span class="profile-icon">👤</span> -->
+          <!-- <span class="user">{{ username }} abc</span> Display the username -->
+      <!-- </div> -->
+        <div class="dropdown" *ngIf="isDropdownVisible">
+          <ul>
+            <li><a routerLink="/profile">My Profile</a></li>
+            <li><a routerLink="/settings">Settings</a></li>
+            <li><a (click)="logout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+  </header>
+
+  
+<div class="sidebar" [class.open]="isSidebarVisible" >
+    <ul>
+      <li><a routerLink="/employees" routerLinkActive="active-link">Employee List</a></li>
+      <li><a routerLink="/add-employee" routerLinkActive="active-link">Add Employee</a></li>
+    </ul>
+  </div>
+    <!-- Sidebar -->
+    <!-- <nav class="sidebar" [class.open]="isSidebarVisible">
+      <ul>
+        <li><a routerLink="/dashboard">Dashboard</a></li>
+        <li><a routerLink="/employees">Employees</a></li>
+        <li><a routerLink="/settings">Settings</a></li>
+      </ul>
+    </nav> -->
+ </div>   
+ <div class="main-content" [class.sidebar-open]="isSidebarVisible">
+    <router-outlet></router-outlet> <!-- Dynamic content will load here -->
+  </div>

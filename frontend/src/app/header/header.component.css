@@ -1,0 +1,202 @@
+/* Header container styling */
+.app-header {
+    background-color: #007bff; /* Primary blue color */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Navigation bar styling */
+  .app-header nav {
+    display: flex;
+    justify-content: left; /* Center the navigation links */
+    gap: 20px; /* Spacing between links */
+  }
+  
+  /* Navigation links styling */
+  .app-header nav a {
+    color: #fff; /* White text */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px;
+  }
+  
+  /* Hover effect for links */
+  .app-header nav a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    color: #e0e0e0; /* Slightly off-white text */
+  }
+  
+  /* Active link styling (if used with Angular RouterLinkActive) */
+  .app-header nav a.router-link-active {
+    background-color: #0056b3;
+    color: #e0e0e0;
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+  }
+  
+  .menu-icon {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .menu-icon:hover {
+    color: #eff3f8;
+  }
+  .menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 50px;
+    left: -250px; /* Hidden by default */
+    width: 220px;
+    height: 100%;
+    background-color: #303236;
+    color: rgb(250, 245, 245);
+    overflow-y: auto;
+    transition: left 0.3s ease;
+  }
+  
+  .sidebar.open {
+    left: 0; /* Slide in when visible */
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sidebar ul li a:hover {
+    text-decoration: underline;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 30px;
+
+  }
+  
+  .profile-icon {
+    font-size: 24px;  /* Size of the icon */
+    cursor: pointer;  /* Change cursor on hover */
+    color: #fff;  /* Icon color */
+    transition: color 0.3s ease;
+  }
+  
+  .profile-icon:hover {
+    color: #f1f1f1;  /* Change color on hover */
+  }
+  /* Profile icon styling */
+.profile-icon {
+    font-size: 30px;                /* Icon size */
+    cursor: pointer;               /* Pointer on hover */
+    transition: color 0.3s ease;    /* Smooth color transition */
+  }
+  
+  /* Hover effect for profile icon */
+  .profile-icon:hover {
+    color: #f1f1f1;                 /* Change color on hover */
+  }
+  
+  /* Dropdown container */
+  .dropdown {
+    position: absolute;             /* Position relative to the header */
+    top: 50px;                       /* Adjust the dropdown's position */
+    right: 0;                        /* Align dropdown to the right */
+    background-color: #333;         /* Background color */
+    border-radius: 5px;             /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Drop shadow for dropdown */
+    width: 200px;                   /* Width of the dropdown */
+    z-index: 1000;                  /* Ensure dropdown is above other content */
+  }
+  
+  /* Dropdown list styling */
+  .dropdown ul {
+    list-style-type: none;          /* Remove bullet points */
+    margin: 0;
+    padding: 10px 0;                /* Add padding around items */
+  }
+  
+  .dropdown li {
+    padding: 10px 20px;             /* Add space inside each item */
+    border-bottom: 1px solid #444; /* Add divider between items */
+  }
+  
+  .dropdown li:last-child {
+    border-bottom: none;            /* Remove border for the last item */
+  }
+  
+  .dropdown a {
+    color: white;                   /* Link color */
+    text-decoration: none;          /* Remove underline */
+    display: block;                 /* Make the link fill the entire list item */
+  }
+  
+  .dropdown a:hover {
+    background-color: #555;         /* Highlight item on hover */
+    color: #f1f1f1;                 /* Change text color on hover */
+  }
+  .main-content {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+    padding: 20px;
+    flex: 1;
+  }
+  
+  .main-content.sidebar-open {
+    margin-left: 250px; /* Shift content to the right when sidebar is visible */
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adds space between the profile icon and username */
+}
+
+.profile-icon {
+    font-size: 24px;
+}
+
+.user {
+    font-size: 16px;
+    font-weight: 600;
+    color: #eff3f8;
+}

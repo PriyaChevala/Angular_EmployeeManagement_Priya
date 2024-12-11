@@ -1,0 +1,82 @@
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 20px;
+  }
+  
+  .section {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .announcement-item,
+  .statistics-item {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .announcement-item img,
+  .trends-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+  }
+  
+  .category {
+    font-size: 12px;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 5px;
+  }
+  
+  .description {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin-bottom: 15px;
+  }
+  
+  ul li h4 {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+  }
+  
+  ul li p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    color: #0066cc;
+    font-size: 14px;
+  }
+  
+  .statistics-item p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .events-section ul li h4 {
+    font-size: 16px;
+    color: #333;
+  }
+  

@@ -1,0 +1,57 @@
+<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+  <h2>Employee Details</h2>
+</div>
+
+<!-- Search Bar -->
+<div class="search-container">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Search employees..."
+    (input)="onSearchChange()"
+  />
+</div>
+
+<!-- Employee Table -->
+<table border="1" style="width: 80%; text-align: left; margin: 20px auto;">
+  <thead style="background-color: beige;">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of paginatedEmployees; let i = index">
+      <!-- View mode -->
+      <ng-container *ngIf="!employee.isEditing">
+        <td>{{ employee.first_name }}</td>
+        <td>{{ employee.last_name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>
+          <button (click)="editEmployee(i)" style="background-color: rgb(84, 171, 84);">Edit</button>
+          <button (click)="deleteEmployee(i)" style="background-color: rgb(209, 70, 70)">Delete</button>
+        </td>
+      </ng-container>
+
+      <!-- Edit mode -->
+      <ng-container *ngIf="employee.isEditing">
+        <td><input [(ngModel)]="employee.first_name" /></td>
+        <td><input [(ngModel)]="employee.last_name" /></td>
+        <td><input [(ngModel)]="employee.email" /></td>
+        <td>
+          <button (click)="saveEmployee(i)" style="background-color: rgb(111, 162, 111);">Save</button>
+          <button (click)="employee.isEditing = false">Cancel</button>
+        </td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Pagination Controls -->
+<div class="pagination-controls" style="text-align: center; margin-bottom: 25px;">
+  <button [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button [disabled]="currentPage === totalPages" (click)="onPageChange(currentPage + 1)">Next</button>
+</div>

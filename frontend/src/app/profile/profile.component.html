@@ -1,0 +1,58 @@
+<div class="profile-container">
+    <h2 style="display: flex; justify-content: center; align-items: center;">My Profile</h2>
+  
+    <!-- Basic User Information -->
+    <div class="section">
+      <h3>Basic Information</h3>
+      <label for="profilePicture">Profile Picture:</label>
+      <input type="file" id="profilePicture" (change)="onFileSelected($event)" />
+      <div *ngIf="profilePictureUrl" class="profile-picture">
+        <img [src]="profilePictureUrl" alt="Profile Picture" />
+      </div>
+  
+      <!-- <p><strong>Full Name:</strong> {{ fullName }}</p> -->
+      <!-- <p><strong>Username:</strong> {{ userProfile.username }}</p>
+      <p><strong>Email:</strong> {{ userProfile.email }}</p>
+       -->
+       <div >
+        <!-- <h2>Welcome, {{ username }}</h2> -->
+        <p><strong>Username:</strong> {{ username }}</p>
+        
+      </div>
+    </div>
+    
+    
+  
+    <div class="section">
+      <h3>Personal Details</h3>
+    
+      <!-- Edit Mode -->
+      <div *ngIf="isEditMode">
+        <label for="bio">Bio:</label>
+        <textarea id="bio" [(ngModel)]="bio"></textarea>
+    
+        <label for="email">Email:</label>
+        <textarea id="email" [(ngModel)]="email"></textarea>
+    
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" [(ngModel)]="dob" />
+    
+        <label for="location">Location:</label>
+        <input type="text" id="location" [(ngModel)]="location" />
+    
+        <button (click)="saveProfile()">Save</button>
+      </div>
+    
+      <!-- View Mode -->
+      <div *ngIf="!isEditMode">
+        <p><strong>Bio:</strong> {{ bio }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Date of Birth:</strong> {{ dob }}</p>
+        <p><strong>Location:</strong> {{ location }}</p>
+    
+        <button (click)="editProfile()">Edit</button>
+      </div>
+    </div>
+    
+  </div>
+  

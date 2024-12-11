@@ -1,0 +1,41 @@
+<div class="settings-container">
+    <h2>Settings</h2>
+  
+    <!-- Account Settings -->
+    <div class="section">
+      <h3>Account Settings</h3>
+      <button (click)="changePassword()">Change Password</button>
+      <button (click)="updateEmailPreferences()">Email Preferences</button>
+      <button (click)="enableTwoFactorAuth()">
+        {{ isTwoFactorEnabled ? 'Disable Two-Factor Authentication' : 'Enable Two-Factor Authentication' }}
+      </button>
+    </div>
+  
+    <!-- Admin Settings -->
+    <div class="section admin" *ngIf="isAdmin">
+      <h3>Admin Settings</h3>
+      <button (click)="manageRoles()">Manage Roles</button>
+      <button (click)="managePermissions()">Manage Permissions</button>
+      <button (click)="assignToDepartment()">Assign to Department</button>
+    </div>
+  
+    <!-- Privacy Settings -->
+    <div class="section">
+      <h3>Privacy & Security</h3>
+      <button (click)="updatePrivacySettings()">Privacy Settings</button>
+      <button (click)="viewAuditLogs()">View Audit Logs</button>
+      <button (click)="setPasswordPolicy()">Password Policy</button>
+    </div>
+  
+  
+    
+  
+    <!-- Employee Benefits -->
+    <div class="section">
+      <h3>Employee Benefits</h3>
+      <button (click)="viewBenefits()">View Benefits</button>
+    </div>
+  
+
+  </div>
+  
