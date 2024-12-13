@@ -1,18 +1,26 @@
-<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
-    <h2>Employee Form</h2>
-  </div>
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  "
+>
+  <h2>Employee Form</h2>
+</div>
 <form (ngSubmit)="onSubmit()">
-    <div>
-      <label>First Name:</label>
-      <input [(ngModel)]="employee.first_name" name="first_name" required>
-    </div>
-    <div>
-      <label>Last Name:</label>
-      <input [(ngModel)]="employee.last_name" name="last_name" required>
-    </div>
-    <div>
-      <label>Email:</label>
-      <input [(ngModel)]="employee.email" name="email" required type="email">
-    </div>
-    <button type="submit">{{ isEditMode ? 'Update' : 'Submit' }}</button>
-  </form>
+  <div>
+    <label>First Name:</label>
+    <input [(ngModel)]="employee.first_name" name="first_name" required />
+  </div>
+  <div>
+    <label>Last Name:</label>
+    <input [(ngModel)]="employee.last_name" name="last_name" required />
+  </div>
+  <div>
+    <label>Email:</label>
+    <input [(ngModel)]="employee.email" name="email" required type="email" />
+  </div>
+  <button type="submit">{{ isEditMode ? "Update" : "Submit" }}</button>
+</form>

@@ -1,84 +1,192 @@
+<div class="header">
+  <h2
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+    "
+  >
+    Dashboard
+  </h2>
+</div>
 <div class="dashboard-container">
-    <!-- Dashboard Header -->
-    <div class="header">
-      <h2 >Dashboard</h2>
+  <!-- Dashboard Header -->
+
+  <!-- Metrics Section -->
+  <div
+    class="metrics"
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: aliceblue;
+      border-radius: 10px;
+    "
+  >
+    <div class="metric-card">
+      <h3>Total Employees</h3>
+      <p>{{ totalEmployees }}</p>
     </div>
-  
-    <!-- Metrics Section -->
-    <div class="metrics">
-      <div class="metric-card">
-        <h3>Total Employees</h3>
-        <p>{{ totalEmployees }}</p>
+  </div>
+  <!-- Announcements Section -->
+  <div
+    class="section announcements-section"
+    style="background-image: url('assets/backgrounds/announcements-bg.jpg')"
+  >
+    <h3 style="display: flex; justify-content: center; align-items: center">
+      Announcements
+    </h3>
+    <div class="announcement-item">
+      <!-- <img
+        src="assets/backgrounds/announcements-bg.jpg"
+        alt="Announcement Image"
+      /> -->
+      <div>
+        <p class="category">HR Update</p>
+        <h4>New Employee Benefits Introduced for 2024</h4>
+        <p class="description">
+          Learn about the updated health insurance plans, wellness programs, and
+          other exciting benefits for all employees.
+        </p>
+        <a>Read More →</a>
       </div>
     </div>
-        <!-- Announcements Section -->
-        <div class="section announcements-section" style="background-image: url('assets/backgrounds/announcements-bg.jpg');">
-          <h3>Announcements</h3>
-          <div class="announcement-item">
-            <img src="assets/backgrounds/announcements-bg.jpg" alt="Announcement Image" />
-            <div>
-              <p class="category">HR Update</p>
-              <h4>New Employee Benefits Introduced for 2024</h4>
-              <p class="description">
-                Learn about the updated health insurance plans, wellness programs, and other exciting benefits for all employees.
-              </p>
-              <a >Read More →</a>
-            </div>
+  </div>
+
+  <!-- Employee Achievements Section -->
+  <div
+    class="section achievements-section"
+    style="background-image: url('assets/backgrounds/achievements-bg.jpg')"
+  >
+    <h3 style="display: flex; justify-content: center; align-items: center">
+      Employee Achievements
+    </h3>
+    <ul>
+      <li>
+        <h4>Team Alpha Recognized for Excellence</h4>
+        <p>
+          Congratulations to Team Alpha for exceeding quarterly sales targets
+          and demonstrating outstanding teamwork!
+        </p>
+        <a>Learn More →</a>
+      </li>
+      <li>
+        <h4>Employee of the Month: Jane Doe</h4>
+        <p>
+          Jane Doe from the IT department is recognized for her exceptional
+          contribution to the latest system migration project.
+        </p>
+        <a>View Details →</a>
+      </li>
+      <li>
+        <h4>Annual Volunteer Day Success</h4>
+        <p>
+          Thanks to all employees who participated in the community clean-up
+          event. Together, we made a difference!
+        </p>
+        <a>Read About It →</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Statistics Section -->
+  <div class="section statistics-section">
+    <h3>Company Statistics</h3>
+    <div class="statistics-item">
+      <p><strong>Total Employees:</strong> {{ totalEmployees }}</p>
+      <p><strong>Projects Completed:</strong> 37</p>
+    </div>
+  </div>
+
+  <!-- Upcoming Events Section -->
+  <div
+    class="section events-section"
+    style="background-image: url('assets/backgrounds/upcomingEvents-bg.jpg')"
+  >
+    <h3 style="display: flex; justify-content: center; align-items: center">
+      Upcoming Events
+    </h3>
+    <!-- <img
+      src="assets/backgrounds/upcomingEvents-bg.jpg"
+      alt="UpcomingEvents Image"
+    /> -->
+
+    <ul>
+      <li>
+        <h4>Leadership Workshop</h4>
+        <p>December 15, 2024 | Conference Room A</p>
+        <a>Register Now →</a>
+      </li>
+      <li>
+        <h4>Year-End Celebration</h4>
+        <p>December 30, 2024 | Main Auditorium</p>
+        <a>View Details →</a>
+      </li>
+      <li>
+        <h4>Employee Training Program: Advanced Excel</h4>
+        <p>January 10, 2025 | Training Hall</p>
+        <a>Enroll →</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="milestone-container">
+  <h2>Milestone Achievements</h2>
+  <div class="milestone">
+    <div class="milestone-item">
+      <div class="icon"><i class="fa fa-users"></i></div>
+      <h3>Team Expansion</h3>
+      <p>Our team grew by 50% this year.</p>
+    </div>
+    <div class="milestone-item">
+      <div class="icon"><i class="fa fa-briefcase"></i></div>
+      <h3>Projects Completed</h3>
+      <p>Successfully completed 20+ projects.</p>
+    </div>
+    <div class="milestone-item">
+      <div class="icon"><i class="fa fa-trophy"></i></div>
+      <h3>Awards Won</h3>
+      <p>Recognized with 5 industry awards.</p>
+    </div>
+    <div class="milestone-item">
+      <div class="icon"><i class="fa fa-handshake-o"></i></div>
+      <h3>Partnerships</h3>
+      <p>Forged partnerships with 10+ clients.</p>
+    </div>
+    <div class="milestone-item">
+      <div class="icon"><i class="fa fa-flag-checkered"></i></div>
+      <h3>Goals Achieved</h3>
+      <p>Surpassed revenue and impact goals.</p>
+    </div>
+  </div>
+</div>
+<div class="employee-management-container">
+  <div class="left-section">
+    <img
+      src="assets/backgrounds/employeeSitting-bg.jpg"
+      alt="Employees Sitting"
+    />
+  </div>
+  <div class="right-section">
+    <div class="calendar-container">
+      <h2>Employee Engagement Calendar</h2>
+      <p>Monthly Employee Engagement Calendar</p>
+      <div class="calendar-grid">
+        <div class="calendar-card" *ngFor="let month of months">
+          <div class="card-header" [style.backgroundColor]="month.color">
+            <h3>{{ month.name }}</h3>
           </div>
-        </div>
-      
-        <!-- Employee Achievements Section -->
-        <div class="section achievements-section">
-          <h3>Employee Achievements</h3>
-          <ul>
-            <li>
-              <h4>Team Alpha Recognized for Excellence</h4>
-              <p>Congratulations to Team Alpha for exceeding quarterly sales targets and demonstrating outstanding teamwork!</p>
-              <a >Learn More →</a>
-            </li>
-            <li>
-              <h4>Employee of the Month: Jane Doe</h4>
-              <p>Jane Doe from the IT department is recognized for her exceptional contribution to the latest system migration project.</p>
-              <a >View Details →</a>
-            </li>
-            <li>
-              <h4>Annual Volunteer Day Success</h4>
-              <p>Thanks to all employees who participated in the community clean-up event. Together, we made a difference!</p>
-              <a >Read About It →</a>
-            </li>
-          </ul>
-        </div>
-      
-        <!-- Statistics Section -->
-        <div class="section statistics-section">
-          <h3>Company Statistics</h3>
-          <div class="statistics-item">
-            <p><strong>Total Employees:</strong> {{ totalEmployees }}</p>
-            <p><strong>Projects Completed:</strong> 37</p>
+          <div class="card-body">
+            <p>
+              <strong>{{ month.date }}</strong>
+            </p>
+            <ul>
+              <li *ngFor="let activity of month.activities">{{ activity }}</li>
+            </ul>
           </div>
-        </div>
-      
-        <!-- Upcoming Events Section -->
-        <div class="section events-section">
-          <h3>Upcoming Events</h3>
-          <ul>
-            <li>
-              <h4>Leadership Workshop</h4>
-              <p>December 15, 2024 | Conference Room A</p>
-              <a >Register Now →</a>
-            </li>
-            <li>
-              <h4>Year-End Celebration</h4>
-              <p>December 30, 2024 | Main Auditorium</p>
-              <a >View Details →</a>
-            </li>
-            <li>
-              <h4>Employee Training Program: Advanced Excel</h4>
-              <p>January 10, 2025 | Training Hall</p>
-              <a >Enroll →</a>
-            </li>
-          </ul>
         </div>
       </div>
-    
-  
+    </div>
+  </div>
+</div>

@@ -14,7 +14,6 @@ const users = [
   { username: "user1", password: "password123" }, // Example user data
 ];
 
-
 // MySQL connection
 const db = mysql.createConnection({
   host: "localhost",
@@ -360,7 +359,6 @@ app.post("/api/login", (req, res) => {
 //     res.status(200).json(user);
 //   });
 // });
-
 
 app.listen(3000, () => {
   console.log("Server running on port 3000");
