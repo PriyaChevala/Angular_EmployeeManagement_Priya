@@ -5,10 +5,26 @@
     <div class="section">
       <h3>Basic Information</h3>
       <label for="profilePicture">Profile Picture:</label>
-      <input type="file" id="profilePicture" (change)="onFileSelected($event)" />
+      <!-- <input type="file" id="profilePicture" (change)="onImageUpload($event)" />
       <div *ngIf="profilePictureUrl" class="profile-picture">
         <img [src]="profilePictureUrl" alt="Profile Picture" />
+      </div> -->
+      <div>
+        <!-- Display profile picture if uploaded -->
+        <div *ngIf="profilePictureUrl">
+          <img [src]="profilePictureUrl" alt="Profile Picture" width="100">
+          
+          <!-- Show "Edit Pic" and "Remove Pic" buttons when pic is uploaded -->
+          <button style="font-size: small; " (click)="editPic()">Edit Pic</button>
+          <button style="font-size: small;" (click)="removePic()">Remove Pic</button>
+        </div>
+        
+        <!-- Show file input for uploading picture if no picture is uploaded -->
+        <div *ngIf="!profilePictureUrl">
+          <input type="file" id="fileInput" (change)="onImageUpload($event)" />
+        </div>
       </div>
+      
   
       <!-- <p><strong>Full Name:</strong> {{ fullName }}</p> -->
       <!-- <p><strong>Username:</strong> {{ userProfile.username }}</p>

@@ -29,6 +29,52 @@ db.connect((err) => {
   }
   console.log("Connected to MySQL database.");
 });
+// Define change-password route
+app.put("/api/change-password", async (req, res) => {
+  console.log("Received request to change password:", req.body);
+  const { username, oldPassword, newPassword } = req.body;
+
+  if (!username || !oldPassword || !newPassword) {
+    return res
+      .status(400)
+      .send("Username, old password, and new password are required");
+  }
+
+  // Query the database for the user
+  const query = "SELECT * FROM users WHERE username = ?";
+  db.query(query, [username], async (err, results) => {
+    if (err) {
+      console.error("Database error:", err);
+      return res.status(500).send("Error accessing the database");
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send("User not found");
+    }
+
+    const user = results[0];
+
+    // Compare old password with the stored password (hashed)
+    const isOldPasswordValid = await bcrypt.compare(oldPassword, user.password);
+    if (!isOldPasswordValid) {
+      return res.status(400).send("Old password is incorrect");
+    }
+
+    // Hash the new password
+    const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+
+    // Update the user's password in the database
+    const updateQuery = "UPDATE users SET password = ? WHERE username = ?";
+    db.query(updateQuery, [hashedNewPassword, username], (err, result) => {
+      if (err) {
+        console.error("Error updating password:", err);
+        return res.status(500).send("Error updating password");
+      }
+      res.status(200).send("Password updated successfully");
+    });
+  });
+});
+
 // app.post('/api/register', async (req, res) => {
 //   const { email, username, password } = req.body;
 

@@ -3,11 +3,14 @@ import { RouterModule } from '@angular/router';  // Import RouterModule for navi
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,  // Mark this component as standalone
-  imports: [RouterModule, CommonModule],  // Import RouterModule here to enable routerLink in the template
+  imports: [RouterModule, CommonModule, MatIconModule],  // Import RouterModule here to enable routerLink in the template
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -15,7 +18,7 @@ export class HeaderComponent implements OnInit {
   isSidebarVisible: boolean = false;
   isDropdownVisible: boolean = false; // Profile dropdown visibility state
   username: string | null = null;
-  constructor(private router: Router, public authService: AuthService) {}
+  constructor(private router: Router, public authService: AuthService, private dialog: MatDialog) {}
 
 
   ngOnInit(): void {
@@ -51,5 +54,10 @@ export class HeaderComponent implements OnInit {
   }
   getUsername(): string | null {
     return localStorage.getItem('username');
+  }
+  openHelpDialog() {
+    this.dialog.open(HelpDialogComponent, {
+      width: '300px',
+    });
   }
 }

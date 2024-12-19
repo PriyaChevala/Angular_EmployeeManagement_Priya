@@ -5,37 +5,176 @@
     <div class="section">
       <h3>Account Settings</h3>
       <button (click)="changePassword()">Change Password</button>
-      <button (click)="updateEmailPreferences()">Email Preferences</button>
+       <button (click)="openEmailPreferencesModal()">Email Preferences</button> 
+      <div class="modal" *ngIf="isEmailPreferencesOpen">
+        <div class="modal-content">
+          <h3>Email Preferences</h3>
+          <form [formGroup]="emailPreferencesForm" (ngSubmit)="savePreferences()">
+            <div class="form-group">
+              <label>
+                <input type="checkbox" formControlName="promotionalEmails" />
+                Receive Promotional Emails
+              </label>
+            </div>
+      
+            <div class="form-group">
+              <label>
+                <input type="checkbox" formControlName="transactionalEmails" />
+                Receive Transactional Emails
+              </label>
+            </div>
+      
+            <div class="form-group">
+              <label>
+                <input type="checkbox" formControlName="newsletterEmails" />
+                Receive Newsletters
+              </label>
+            </div>
+      
+            <div class="form-actions">
+              <button type="submit" [disabled]="emailPreferencesForm.invalid">Save Preferences</button>
+              <button type="button" (click)="closeEmailPreferencesModal()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
       <button (click)="enableTwoFactorAuth()">
         {{ isTwoFactorEnabled ? 'Disable Two-Factor Authentication' : 'Enable Two-Factor Authentication' }}
       </button>
     </div>
-  
+  <!-- Modal for Change Password -->
+  <!-- <div class="modal" *ngIf="isPasswordModalOpen">
+    <div class="modal-content">
+      <h3>Change Password</h3>
+      <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+        <div class="form-group">
+          <label for="currentPassword">Current Password</label>
+          <input type="password" id="currentPassword" formControlName="currentPassword" required />
+          <div *ngIf="passwordForm.get('currentPassword')?.invalid && passwordForm.get('currentPassword')?.touched">
+            Current password is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" formControlName="newPassword" required />
+          <div *ngIf="passwordForm.get('newPassword')?.invalid && passwordForm.get('newPassword')?.touched">
+            New password is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm New Password</label>
+          <input type="password" id="confirmPassword" formControlName="confirmPassword" required />
+          <div *ngIf="passwordForm.get('confirmPassword')?.invalid && passwordForm.get('confirmPassword')?.touched">
+            Please confirm your new password.
+          </div>
+          <div *ngIf="passwordForm.errors?.['passwordMismatch'] && passwordForm.get('confirmPassword')?.touched">
+            Passwords do not match.
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" [disabled]="passwordForm.invalid">Update Password</button>
+          <button type="button" (click)="closeChangePasswordModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div> -->
+
+
     <!-- Admin Settings -->
-    <div class="section admin" *ngIf="isAdmin">
+    <!-- <div class="section admin" *ngIf="isAdmin">
       <h3>Admin Settings</h3>
       <button (click)="manageRoles()">Manage Roles</button>
       <button (click)="managePermissions()">Manage Permissions</button>
       <button (click)="assignToDepartment()">Assign to Department</button>
-    </div>
+    </div> -->
   
     <!-- Privacy Settings -->
     <div class="section">
       <h3>Privacy & Security</h3>
-      <button (click)="updatePrivacySettings()">Privacy Settings</button>
-      <button (click)="viewAuditLogs()">View Audit Logs</button>
-      <button (click)="setPasswordPolicy()">Password Policy</button>
+      <button (click)="openPrivacySettingsModal()">Privacy Settings</button>
+    <button (click)="openAuditLogsModal()">View Audit Logs</button>
+      <button (click)="openPasswordPolicyModal()">Password Policy</button>
     </div>
   
-  
+  <!-- Modal for Privacy Settings -->
+  <div class="modal" *ngIf="isPrivacySettingsModalOpen">
+    <div class="modal-content">
+      <h3>Privacy Settings</h3>
+      <p>
+        Manage your privacy preferences:
+      </p>
+      <ul>
+        <li>Control who can view your profile information.</li>
+        <li>Enable or disable location tracking.</li>
+        <li>Manage data sharing with third-party services.</li>
+      </ul>
+      <div class="form-actions">
+        <button (click)="closePrivacySettingsModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Audit Logs -->
+  <div class="modal" *ngIf="isAuditLogsModalOpen">
+    <div class="modal-content">
+      <h3>Audit Logs</h3>
+      <p>
+        Review recent activity on your account:
+      </p>
+      <ul>
+        <li><strong>2024-12-15:</strong> Password changed.</li>
+        <li><strong>2024-12-14:</strong> Logged in from a new device.</li>
+        <li><strong>2024-12-12:</strong> Two-factor authentication enabled.</li>
+        <li><strong>2024-12-10:</strong> Email preferences updated.</li>
+      </ul>
+      <div class="form-actions">
+        <button (click)="closeAuditLogsModal()">Close</button>
+      </div>
+    </div>
+  </div>
     
   
     <!-- Employee Benefits -->
     <div class="section">
       <h3>Employee Benefits</h3>
-      <button (click)="viewBenefits()">View Benefits</button>
+      <button (click)="openBenefitsModal()">View Benefits</button>
     </div>
   
-
+    <!-- Modal for Employee Benefits -->
+    <div class="modal" *ngIf="isBenefitsModalOpen">
+      <div class="modal-content">
+        <h3>Employee Benefits</h3>
+        <p>
+          At our company, we offer a comprehensive range of benefits including health insurance, retirement savings plans, paid time off, wellness programs, and more to support our employees' well-being and work-life balance.
+        </p>
+        <div class="form-actions">
+          <button (click)="closeBenefitsModal()">Close</button>
+        </div>
+      </div>
+    </div>
+<!-- Modal for Password Policy -->
+<div class="modal" *ngIf="isPasswordPolicyModalOpen">
+  <div class="modal-content">
+    <h3>Password Policy</h3>
+    <p>
+      Our password policy is designed to enhance security:
+    </p>
+    <ul>
+      <li>Minimum of 8 characters.</li>
+      <li>At least one uppercase letter (A-Z).</li>
+      <li>At least one lowercase letter (a-z).</li>
+      <li>At least one digit (0-9).</li>
+      <li>At least one special character (e.g., #, $, etc.).</li>
+      <li>Should not contain your username or easily guessable words.</li>
+    </ul>
+    <div class="form-actions">
+      <button (click)="closePasswordPolicyModal()">Close</button>
+    </div>
+  </div>
+</div>
   </div>
   

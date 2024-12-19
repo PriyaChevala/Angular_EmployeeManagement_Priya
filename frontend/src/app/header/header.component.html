@@ -11,6 +11,11 @@
       <a [routerLink]="['/dashboard']">Dashboard</a>
     </nav>
     <div class="header-right">
+        <button mat-icon-button (click)="openHelpDialog()">
+          <mat-icon>help_outline</mat-icon>
+        </button>
+      
+      
       <i class="fas fa-user-circle profile-icon" (click)="toggleDropdown()"></i> 
        <span  >{{ username }} </span> 
       
@@ -22,7 +27,7 @@
         <div class="dropdown" *ngIf="isDropdownVisible">
           <ul>
             <li><a routerLink="/profile">My Profile</a></li>
-            <li><a routerLink="/settings">Settings</a></li>
+            <!-- <li><a routerLink="/settings">Settings</a></li> -->
             <li><a (click)="logout()">Logout</a></li>
           </ul>
         </div>
@@ -34,6 +39,7 @@
     <ul>
       <li><a routerLink="/employees" routerLinkActive="active-link">Employee List</a></li>
       <li><a routerLink="/add-employee" routerLinkActive="active-link">Add Employee</a></li>
+      <li><a routerLink="/settings" routerLinkActive="active-link">Settings</a></li>
     </ul>
   </div>
     <!-- Sidebar -->
